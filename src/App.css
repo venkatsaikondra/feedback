@@ -1,0 +1,173 @@
+/* =============================
+   Root Variables for Light/Dark Mode
+============================= */
+:root {
+  --bg-color: #f4f6f8;
+  --text-color: #333;
+  --card-bg: #ffffff;
+  --primary: #007acc;
+  --button-bg: #007acc;
+  --button-hover: #005fa3;
+}
+
+body.dark {
+  --bg-color: #1e1e1e;
+  --text-color: #e0e0e0;
+  --card-bg: #2c2c2c;
+  --primary: #61dafb;
+  --button-bg: #3b82f6;
+  --button-hover: #2563eb;
+}
+
+/* =============================
+   Global Styles
+============================= */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.App {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+h1, h2, h3 {
+  color: var(--primary);
+}
+
+/* =============================
+   Form Styles
+============================= */
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.form input {
+  margin: 10px 5px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 80px;
+  text-align: center;
+  transition: 0.3s border;
+}
+
+.form input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.form button, .toggle-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form button:hover, .toggle-button:hover {
+  background-color: var(--button-hover);
+}
+
+/* =============================
+   Chart & Loader
+============================= */
+.chart-container {
+  margin-top: 30px;
+}
+
+.loader {
+  margin: 40px auto;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid var(--primary);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* =============================
+   Toggle Switch Styles (Emoji Mode)
+============================= */
+.toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.theme-toggle {
+  position: relative;
+  width: 60px;
+  height: 30px;
+}
+
+.theme-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: var(--button-bg);
+  border-radius: 34px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center emoji on the toggle */
+  font-size: 1.2rem;
+  transition: all 0.4s ease;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle input:checked + .slider {
+  background-color: var(--button-hover);
+}
+
+.theme-toggle input:focus + .slider {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+/* =============================
+   Mobile Responsive
+============================= */
+@media screen and (max-width: 600px) {
+  .form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form input {
+    width: 100%;
+  }
+
+  .form button {
+    width: 100%;
+  }
+}
